@@ -1,0 +1,12 @@
+{
+  "name": "Lean Cookie Consent",
+  "settings": [
+    {
+      "type": "text",
+      "id": "lean_cookie_consent_site_key",
+      "label": "Lean Cookie Consent Site Key",
+      "info": "Paste the public Site Key from your Lean Cookie Consent dashboard."
+    }
+  ]
+}
+
