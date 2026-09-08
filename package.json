@@ -1,0 +1,14 @@
+{
+  "name": "lean-cookie-consent-shopify",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lean Cookie Consent Shopify theme connector.",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/render-snippet.test.mjs"
+  },
+  "devDependencies": {
+    "liquidjs": "^10.21.1"
+  }
+}
+
