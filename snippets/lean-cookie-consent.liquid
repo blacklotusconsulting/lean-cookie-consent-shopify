@@ -1,0 +1,29 @@
+{%- comment -%}
+  Lean Cookie Consent for Shopify
+  Version: 0.1.0
+
+  Usage:
+    {% render 'lean-cookie-consent', site_key: 'YOUR_SITE_KEY' %}
+
+  Optional:
+    If the theme defines settings.lean_cookie_consent_site_key, the snippet can
+    be rendered without an explicit site_key parameter.
+{%- endcomment -%}
+
+{%- liquid
+  assign lean_site_key = site_key | default: settings.lean_cookie_consent_site_key | default: ''
+  assign lean_site_key = lean_site_key | strip
+-%}
+
+{%- if lean_site_key != blank -%}
+  <script>
+    window.LeanCookieConsentShopify = window.LeanCookieConsentShopify || {};
+    window.LeanCookieConsentShopify.siteKey = {{ lean_site_key | json }};
+    window.LeanCookieConsentShopify.shopDomain = {{ shop.permanent_domain | json }};
+    window.LeanCookieConsentShopify.shopName = {{ shop.name | json }};
+  </script>
+  <script async src="https://api.leancookieconsent.com/embed.js?site={{ lean_site_key | url_encode }}"></script>
+{%- else -%}
+  <!-- Lean Cookie Consent: missing site_key render parameter or theme setting. -->
+{%- endif -%}
+
